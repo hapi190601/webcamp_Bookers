@@ -7,7 +7,7 @@ class BookersController < ApplicationController
   end
 
   def index
-    @books = Book.all
+    @books = Book.all.order(updated_at: :ASC)
     @book = Book.new
   end
 
