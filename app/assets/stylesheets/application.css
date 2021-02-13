@@ -55,3 +55,28 @@ td {
 .block {
   margin-bottom: 10px;
 }
+
+.red-border {
+  width: 450px;
+  border: 2px solid red;
+  margin-bottom: 20px;
+  background-color: #f0f0f0;
+}
+
+
+ul {
+  margin: 33px;
+  padding-left: 40px;
+}
+
+.red_message {
+  margin: 0;
+  padding: 5px 5px 5px 15px;
+  color: white;
+  background-color: #c00;
+  font-weight: bold;
+}
+
+.flash {
+  color: green;
+}
