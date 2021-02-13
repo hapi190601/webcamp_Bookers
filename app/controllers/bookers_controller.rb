@@ -8,17 +8,24 @@ class BookersController < ApplicationController
 
   def index
     @books = Book.all
+    @book = Book.new
   end
 
   def show
     @book = Book.find(params[:id])
   end
 
+
   def create
-    book = Book.new(book_params)
-    book.save
-    redirect_to show_path(book.id)
+    @book = Book.new(book_params)
+    if @book.save
+      redirect_to show_path(@book.id)
+    else
+      @books = Book.all
+      render :index
+    end
   end
+
 
   def edit
     @book = Book.find(params[:id])
@@ -40,6 +47,6 @@ class BookersController < ApplicationController
   # ストロングパラメータ
   private
   def book_params
-    params.permit(:title, :body)
+    params.require(:book).permit(:title, :body)
   end
 end
